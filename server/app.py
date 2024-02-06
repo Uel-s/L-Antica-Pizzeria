@@ -19,6 +19,10 @@ app.config["SQLALCHEMY_TRACK_MODIFICATION"] = False
 migrate = Migrate(app, db)
 db.init_app(app)
 
+#Initialize Flask-RESTful
+
+api = Api(app)
+
 ################################################################
 
 # Run the Flask app
