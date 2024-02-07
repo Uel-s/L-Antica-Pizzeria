@@ -1,9 +1,9 @@
 from flask import Flask, make_response, request, jsonify
 from flask_migrate import Migrate
 from flask_restful import Api, Resource
-#from model import 
+from model import db, Pizza
 
-# Create a Flask application instance
+# Create a Flask application instance/ configuring Flask with SQLAlchemy
 app = Flask(__name__)
 
 # Configure the database URI for SQLAlchemy
