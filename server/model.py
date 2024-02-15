@@ -32,8 +32,8 @@ class Restaurant_Pizza(db.Model):
 
     respizza_id = db.Column(db.Integer, Sequence("respizza_id_seq"), primary_key=True)    
     respizza_price = db.Column(db.Integer)
-    pizzas_id = db.Column(db.Integer, db.ForeignKey("pizzas.id"))
-    restaurant_id = db.Column(db.Integer, db.ForeignKey("restaurants.id"))
+    pizzas_id = db.Column(db.Integer, db.ForeignKey("pizzas.piz_id"))  
+    restaurant_id = db.Column(db.Integer, db.ForeignKey("restaurants.res_id"))  # Adjusted ForeignKey here
 
     created_at = db.Column(db.DateTime, server_default= db.func.now())
     updated_at = db.Column(db.DateTime, onupdate=db.func.now())
@@ -41,4 +41,3 @@ class Restaurant_Pizza(db.Model):
     res_pizza = db.relationship("Pizza", back_populates="respizza", lazy=True)
 
     res_restaurant= db.relationship("Restaurant", back_populates= "resResto", lazy=True)
-
